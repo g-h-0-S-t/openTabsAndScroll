@@ -131,28 +131,6 @@ Most browsers block pop-ups by default. You must:
 
 Some browsers restrict programmatic focus in background tabs. The script attempts to focus each tab, but results may vary by browser and security settings.
 
-## Performance
-
-### Timing Breakdown (per tab)
-
-| Operation | Time | Notes |
-|-----------|------|-------|
-| Tab open | ~50ms | Browser-dependent |
-| Focus | ~10ms | Instant |
-| Scroll attempts | 100-1500ms | Until success or max retries |
-| Post-scroll wait | 200ms | For lazy-loaded content |
-| Close tab | ~10ms | Instant |
-| Inter-tab delay | 100ms | Prevents browser overload |
-| **Total** | **~0.5-1.5s** | **3-8x faster than naive approach** |
-
-### Comparison
-
-| Approach | Time per Tab | Total for 10 Tabs |
-|----------|--------------|-------------------|
-| Old (fixed delays) | ~4s | ~40s |
-| **New (smart retry)** | **~0.5-1.5s** | **~5-15s** |
-| **Improvement** | **3-8x faster** | **62-87% faster** |
-
 ## Troubleshooting
 
 ### Tabs Not Opening
